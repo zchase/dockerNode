@@ -1,9 +1,9 @@
-FROM    centos:centos6
+FROM    ubuntu:14.04
 
 # Enable Extra Packages for Enterprise Linux (EPEL) for CentOS
-RUN     yum install -y epel-release
+RUN     apt-get update
 # Install Node.js and npm
-RUN     yum install -y nodejs npm
+RUN     apt-get install nodejs -y
 
 # Install app dependencies
 COPY package.json /src/package.json
