@@ -4,6 +4,7 @@ FROM    ubuntu:14.04
 RUN     apt-get update
 # Install Node.js and npm
 RUN     apt-get install nodejs -y
+RUN     apt-get install npm -y
 
 # Install app dependencies
 COPY package.json /src/package.json
