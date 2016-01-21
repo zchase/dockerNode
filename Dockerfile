@@ -1,4 +1,7 @@
-FROM alpine/nodejs
+FROM alpine:3.1
+
+# Update
+RUN apk add --update nodejs
 
 # Install app dependencies
 COPY package.json /src/package.json
