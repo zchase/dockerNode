@@ -1,10 +1,7 @@
-FROM    ubuntu:14.04
+FROM alpine
 
-# Enable Extra Packages for Enterprise Linux (EPEL) for CentOS
-RUN     apt-get update
-# Install Node.js and npm
-RUN     apt-get install nodejs -y
-RUN     apt-get install npm -y
+# Update
+RUN apk add --update nodejs
 
 # Install app dependencies
 COPY package.json /src/package.json
