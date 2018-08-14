@@ -8,8 +8,8 @@ phases:
       - pip install docker-compose
   build:
     commands:
-      - docker build --tag=$APP_IMAGE .
-      - docker push $APP_IMAGE
+      - docker build --tag=dockerNode .
+      - docker push dockerNode
   post_build:
     commands:
       - echo Build completed on `date`
