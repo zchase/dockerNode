@@ -3,6 +3,7 @@ version: 0.1
 phases:
   pre_build:
     commands:
+      - pip install docker
       - $(aws ecr get-login --region $AWS_REGION --no-include-email)
       - pip install docker-compose
   build:
