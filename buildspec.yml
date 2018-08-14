@@ -4,12 +4,12 @@ phases:
   pre_build:
     commands:
       - pip install docker
+      - docker start
       - $(aws ecr get-login --region $AWS_REGION --no-include-email)
       - pip install docker-compose
   build:
     commands:
-      - docker build -t $APP_IMAGE .
-      - COMPOSE_HTTP_TIMEOUT=200 docker-compose run --rm test
+      - docker build --tag=$APP_IMAGE .
       - docker push $APP_IMAGE
   post_build:
     commands:
