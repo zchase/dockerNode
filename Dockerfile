@@ -1,5 +1,12 @@
 FROM amazonlinux
 
+RUN \
+  yum update -y &&\
+  yum -y install wget tar zip &&\
+  yum -y groupinstall 'Development Tools' &&\
+  echo ZONE=\"US/Eastern\" > /etc/sysconfig/clock &&\
+  ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
+
 ### NODEJS ###
 ENV NODEJS_VERSION v6.11.4
 ENV NODEJS_SHA1 75b22881b4581bc7b09d0f829c06ad1c1f1fd92e
